@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Locker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        #navbar {
+            width: 100%;
+            background-color: #ddd;
+            position: fixed;
+            top: 0;
+            height: 30px;
+            z-index: 1001;
+        }
+
+        #progress {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0;
+            transition: width 2s;
+        }
+
+        #status {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 60px;
+        }
+
+        .black-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            padding: 20px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .black-screen.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div id="progress"></div>
+    </div>
+    <h1 id="status">Data Sedang Diambil...</h1>
+    <div id="black-screen" class="black-screen">Bayar 10 Juta Jika Data Berharga Anda Ingin Kembali!</div>
+    <script>
+        let statusElement = document.getElementById('status');
+        let blackScreenElement = document.getElementById('black-screen');
+        let progressElement = document.getElementById('progress');
+
+        let steps = [
+            'Data Sedang Diambil...',
+            'Data Sedang Diproses...',
+            'Data Selesai Diproses...',
+            'Mengunci Data...',
+            'Data Selesai Dikunci...',
+            'Layar Website Menjadi Hitam...'
+        ];
+
+        let progressWidths = ['20%', '40%', '60%', '80%', '100%'];
+
+        let currentStep = 0;
+        let dataSaved = false; // Flag to track if data is saved
+
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                statusElement.textContent = steps[currentStep];
+                progressElement.style.width = progressWidths[currentStep];
+                currentStep++;
+                setTimeout(nextStep, 4000); // wait 4 seconds before next step
+            } else {
+                statusElement.textContent = steps[currentStep];
+                progressElement.style.width = '100%';
+                setTimeout(() => {
+                    // Simpan data ke JSON saat layar hitam muncul
+                    if (!dataSaved) {
+                        saveDataToJSON();
+                    }
+                    // Arahkan ke YouTube Kominfo setelah 10 juta
+                    redirectToYouTube();
+                }, 2000); // wait 2 seconds before redirecting
+            }
+        }
+
+        function saveDataToJSON() {
+            const dataToSave = {
+                message: 'Data berharga anda terkunci. Silakan bayar 10 juta untuk mendapatkan kembali data anda.'
+            };
+
+            // Simpan ke local storage
+            localStorage.setItem('lockedData', JSON.stringify(dataToSave));
+            dataSaved = true;
+        }
+
+        function redirectToYouTube() {
+            // Arahkan ke YouTube Kominfo
+            window.location.href = 'https://www.youtube.com/watch?v=nMtHPk3QVXQ';
+
+            // Blokir navigasi kembali
+            blockNavigation();
+        }
+
+        function blockNavigation() {
+            // Blokir refresh
+            window.addEventListener('beforeunload', function(e) {
+                if (!dataSaved) {
+                    const confirmationMessage = 'Anda akan kehilangan data anda!';
+                    (e || window.event).returnValue = confirmationMessage; // For IE and Firefox prior to version 4
+                    return confirmationMessage; // For other browsers
+                }
+            });
+
+            // Blokir kembali ke halaman sebelumnya
+            window.history.pushState(null, null, window.location.href);
+            window.addEventListener('popstate', function() {
+                if (!dataSaved) {
+                    window.history.pushState(null, null, window.location.href);
+                }
+            });
+        }
+
+        nextStep();
+    </script>
+</body>
+</html>

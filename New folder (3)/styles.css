@@ -1,0 +1,43 @@
+body {
+    font-family: monospace;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+a, span {
+    display: inline-block;
+}
+
+a {
+    width: 70%;
+}
+
+span {
+    width: 30%;
+    text-align: right;
+    color: gray;
+}

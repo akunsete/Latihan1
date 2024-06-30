@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nama-nama Indonesia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .nama-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nama-item {
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px; /* Increased margin between items */
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+            position: relative; /* Ensure relative positioning */
+        }
+        .nama-item:hover {
+            background-color: #e0e0e0; /* Light background on hover */
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            z-index: 1; /* Ensure overlay is above everything else */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .overlay-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #555;
+        }
+        .close-button:hover {
+            color: #f44336; /* Red color on hover */
+        }
+        .download-options {
+            margin-top: 10px;
+        }
+        .download-button, .open-button {
+            padding: 8px 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        .download-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .open-button {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar-Daftar RCEO</h1>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Cari nama...">
+            <div style="display: none;" class="no-results" id="noResultsMessage">Tidak ada hasil yang sesuai dengan pencarian Anda.</div>
+        </div>
+
+        <ul class="nama-list">
+            <!-- Daftar nama-nama Indonesia -->
+            <li class="nama-item" onclick="showOverlay('Lina Sari')">Lina Sari</li>
+            <li class="nama-item" onclick="showOverlay('Joko Prabowo')">Joko Prabowo</li>
+            <li class="nama-item" onclick="showOverlay('Siti Rahayu')">Siti Rahayu</li>
+            <li class="nama-item" onclick="showOverlay('Agus Nugroho')">Agus Nugroho</li>
+            <li class="nama-item" onclick="showOverlay('Dewi Permata')">Dewi Permata</li>
+            <li class="nama-item" onclick="showOverlay('Hadi Saputra')">Hadi Saputra</li>
+            <li class="nama-item" onclick="showOverlay('Ani Wahyuni')">Ani Wahyuni</li>
+            <li class="nama-item" onclick="showOverlay('Iwan Setiawan')">Iwan Setiawan</li>
+            <li class="nama-item" onclick="showOverlay('Rini Fitriani')">Rini Fitriani</li>
+            <li class="nama-item" onclick="showOverlay('Adi Kurniawan')">Adi Kurniawan</li>
+            <li class="nama-item" onclick="showOverlay('Nani Handayani')">Nani Handayani</li>
+            <li class="nama-item" onclick="showOverlay('Hadianto Wibowo')">Hadianto Wibowo</li>
+            <li class="nama-item" onclick="showOverlay('Maya Utami')">Maya Utami</li>
+            <li class="nama-item" onclick="showOverlay('Yudi Santoso')">Yudi Santoso</li>
+            <li class="nama-item" onclick="showOverlay('Putri Indah')">Putri Indah</li>
+            <li class="nama-item" onclick="showOverlay('Budi Santoso')">Budi Santoso</li>
+            <li class="nama-item" onclick="showOverlay('Nita Puspita')">Nita Puspita</li>
+            <li class="nama-item" onclick="showOverlay('Didik Wijaya')">Didik Wijaya</li>
+            <li class="nama-item" onclick="showOverlay('Lia Pratiwi')">Lia Pratiwi</li>
+            <li class="nama-item" onclick="showOverlay('Agung Purnomo')">Agung Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Yuni Astuti')">Yuni Astuti</li>
+            <li class="nama-item" onclick="showOverlay('Edi Hartono')">Edi Hartono</li>
+            <li class="nama-item" onclick="showOverlay('Rini Sulastri')">Rini Sulastri</li>
+            <li class="nama-item" onclick="showOverlay('Ari Setiawan')">Ari Setiawan</li>
+            <li class="nama-item" onclick="showOverlay('Lusi Wahyuni')">Lusi Wahyuni</li>
+            <li class="nama-item" onclick="showOverlay('Surya Wardana')">Surya Wardana</li>
+            <li class="nama-item" onclick="showOverlay('Susi Rahmawati')">Susi Rahmawati</li>
+            <li class="nama-item" onclick="showOverlay('Dedi Firmansyah')">Dedi Firmansyah</li>
+            <li class="nama-item" onclick="showOverlay('Tri Yulianti')">Tri Yulianti</li>
+            <li class="nama-item" onclick="showOverlay('Fajar Budiman')">Fajar Budiman</li>
+            <li class="nama-item" onclick="showOverlay('Ratna Dewi')">Ratna Dewi</li>
+            <li class="nama-item" onclick="showOverlay('Herry Susanto')">Herry Susanto</li>
+            <li class="nama-item" onclick="showOverlay('Lina Anggraini')">Lina Anggraini</li>
+            <li class="nama-item" onclick="showOverlay('Dian Setyawati')">Dian Setyawati</li>
+            <li class="nama-item" onclick="showOverlay('Joko Nugroho')">Joko Nugroho</li>
+            <li class="nama-item" onclick="showOverlay('Sari Fitriani')">Sari Fitriani</li>
+            <li class="nama-item" onclick="showOverlay('Antonius Wibisono')">Antonius Wibisono</li>
+            <li class="nama-item" onclick="showOverlay('Eka Sari')">Eka Sari</li>
+            <li class="nama-item" onclick="showOverlay('Joko Santoso')">Joko Santoso</li>
+            <li class="nama-item" onclick="showOverlay('Yuli Susilowati')">Yuli Susilowati</li>
+            <li class="nama-item" onclick="showOverlay('Rudy Prasetyo')">Rudy Prasetyo</li>
+            <li class="nama-item" onclick="showOverlay('Mega Puspitasari')">Mega Puspitasari</li>
+            <li class="nama-item" onclick="showOverlay('Hadi Widodo')">Hadi Widodo</li>
+            <li class="nama-item" onclick="showOverlay('Nita Indriani')">Nita Indriani</li>
+            <li class="nama-item" onclick="showOverlay('Dwi Purnomo')">Dwi Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Lina Setiawati')">Lina Setiawati</li>
+            <li class="nama-item" onclick="showOverlay('Yanto Saputra')">Yanto Saputra</li>
+            <li class="nama-item" onclick="showOverlay('Ani Kartini')">Ani Kartini</li>
+            <li class="nama-item" onclick="showOverlay('Yudi Purnomo')">Yudi Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Dewi Kusumawati')">Dewi Kusumawati</li>
+            <li class="nama-item" onclick="showOverlay('Eko Setiawan')">Eko Setiawan</li>
+            <li class="nama-item" onclick="showOverlay('Maya Anggraini')">Maya Anggraini</li>
+            <li class="nama-item" onclick="showOverlay('Hadi Cahyono')">Hadi Cahyono</li>
+            <li class="nama-item" onclick="showOverlay('Sari Purwanti')">Sari Purwanti</li>
+            <li class="nama-item" onclick="showOverlay('Heryanto Prabowo')">Heryanto Prabowo</li>
+            <li class="nama-item" onclick="showOverlay('Rina Agustina')">Rina Agustina</li>
+            <li class="nama-item" onclick="showOverlay('Didik Santoso')">Didik Santoso</li>
+            <li class="nama-item" onclick="showOverlay('Yuni Triana')">Yuni Triana</li>
+            <li class="nama-item" onclick="showOverlay('Agus Haryanto')">Agus Haryanto</li>
+            <li class="nama-item" onclick="showOverlay('Yuli Handayani')">Yuli Handayani</li>
+            <li class="nama-item" onclick="showOverlay('Edi Susanto')">Edi Susanto</li>
+            <li class="nama-item" onclick="showOverlay('Maya Wardani')">Maya Wardani</li>
+            <li class="nama-item" onclick="showOverlay('Ari Kurniawan')">Ari Kurniawan</li>
+            <li class="nama-item" onclick="showOverlay('Lia Fitriani')">Lia Fitriani</li>
+            <li class="nama-item" onclick="showOverlay('Joko Wijaya')">Joko Wijaya</li>
+            <li class="nama-item" onclick="showOverlay('Siti Astuti')">Siti Astuti</li>
+            <li class="nama-item" onclick="showOverlay('Andi Setiawan')">Andi Setiawan</li>
+            <li class="nama-item" onclick="showOverlay('Rini Wahyuni')">Rini Wahyuni</li>
+            <li class="nama-item" onclick="showOverlay('Bambang Santosa')">Bambang Santosa</li>
+            <li class="nama-item" onclick="showOverlay('Nani Utami')">Nani Utami</li>
+            <li class="nama-item" onclick="showOverlay('Hadi Purnomo')">Hadi Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Ani Susanti')">Ani Susanti</li>
+            <li class="nama-item" onclick="showOverlay('Iwan Suryadi')">Iwan Suryadi</li>
+            <li class="nama-item" onclick="showOverlay('Rini Hartati')">Rini Hartati</li>
+            <li class="nama-item" onclick="showOverlay('Adi Nugroho')">Adi Nugroho</li>
+            <li class="nama-item" onclick="showOverlay('Nani Septiani')">Nani Septiani</li>
+            <li class="nama-item" onclick="showOverlay('Hadi Kusuma')">Hadi Kusuma</li>
+            <li class="nama-item" onclick="showOverlay('Maya Puspitasari')">Maya Puspitasari</li>
+            <li class="nama-item" onclick="showOverlay('Yudi Prabowo')">Yudi Prabowo</li>
+            <li class="nama-item" onclick="showOverlay('Putri Wulandari')">Putri Wulandari</li>
+            <li class="nama-item" onclick="showOverlay('Budi Hartono')">Budi Hartono</li>
+            <li class="nama-item" onclick="showOverlay('Nita Pratiwi')">Nita Pratiwi</li>
+            <li class="nama-item" onclick="showOverlay('Didik Setiawan')">Didik Setiawan</li>
+            <li class="nama-item" onclick="showOverlay('Lia Fitriani')">Lia Fitriani</li>
+            <li class="nama-item" onclick="showOverlay('Agung Santoso')">Agung Santoso</li>
+            <li class="nama-item" onclick="showOverlay('Yuni Wulandari')">Yuni Wulandari</li>
+            <li class="nama-item" onclick="showOverlay('Edi Prasetyo')">Edi Prasetyo</li>
+            <li class="nama-item" onclick="showOverlay('Rini Permata')">Rini Permata</li>
+            <li class="nama-item" onclick="showOverlay('Ari Kusumawati')">Ari Kusumawati</li>
+            <li class="nama-item" onclick="showOverlay('Lusi Fitriani')">Lusi Fitriani</li>
+            <li class="nama-item" onclick="showOverlay('Surya Pratama')">Surya Pratama</li>
+            <li class="nama-item" onclick="showOverlay('Susi Purnomo')">Susi Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Dedi Suryanto')">Dedi Suryanto</li>
+            <li class="nama-item" onclick="showOverlay('Tri Utami')">Tri Utami</li>
+            <li class="nama-item" onclick="showOverlay('Fajar Setiawan')">Fajar Setiawan</li>
+            <li class="nama-item" onclick="showOverlay('Ratna Sari')">Ratna Sari</li>
+            <li class="nama-item" onclick="showOverlay('Herry Wibowo')">Herry Wibowo</li>
+            <li class="nama-item" onclick="showOverlay('Dian Setiawati')">Dian Setiawati</li>
+            <li class="nama-item" onclick="showOverlay('Joko Nugroho')">Joko Nugroho</li>
+            <li class="nama-item" onclick="showOverlay('Sari Fitriani')">Sari Fitriani</li>
+            <li class="nama-item" onclick="showOverlay('Antonius Wibisono')">Antonius Wibisono</li>
+            <li class="nama-item" onclick="showOverlay('Eka Sari')">Eka Sari</li>
+            <li class="nama-item" onclick="showOverlay('Joko Santoso')">Joko Santoso</li>
+            <li class="nama-item" onclick="showOverlay('Yuli Susilowati')">Yuli Susilowati</li>
+            <li class="nama-item" onclick="showOverlay('Rudy Prasetyo')">Rudy Prasetyo</li>
+            <li class="nama-item" onclick="showOverlay('Mega Puspitasari')">Mega Puspitasari</li>
+            <li class="nama-item" onclick="showOverlay('Hadi Widodo')">Hadi Widodo</li>
+            <li class="nama-item" onclick="showOverlay('Nita Indriani')">Nita Indriani</li>
+            <li class="nama-item" onclick="showOverlay('Dwi Purnomo')">Dwi Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Lina Setiawati')">Lina Setiawati</li>
+            <li class="nama-item" onclick="showOverlay('Yanto Saputra')">Yanto Saputra</li>
+            <li class="nama-item" onclick="showOverlay('Ani Kartini')">Ani Kartini</li>
+            <li class="nama-item" onclick="showOverlay('Yudi Purnomo')">Yudi Purnomo</li>
+            <li class="nama-item" onclick="showOverlay('Dewi Kusumawati')">Dewi Kusamati</li>
+              
+        </ul>
+
+        <div class="overlay" id="overlay">
+            <div class="overlay-content">
+                <button class="close-button" onclick="hideOverlay()">&times;</button>
+                <h2>Detail Nama</h2>
+                <p id="namaDetail"></p>
+                <div class="download-options">
+                    <button class="download-button" onclick="handleChoice('download')">Download</button>
+                    <button class="open-button" onclick="handleChoice('open')">Open</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript logic
+        function showOverlay(file) {
+            var overlay = document.getElementById('overlay');
+            var namaDetail = document.getElementById('namaDetail');
+    
+            namaDetail.textContent = 'File:' + file;
+            overlay.style.display = 'flex';
+            overlay.style.zIndex = '1';
+        }
+    
+        function hideOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+    
+        function handleChoice(choice) {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+    
+            var namaDetail = document.getElementById('namaDetail').textContent;
+    
+            if (choice === 'download') {
+                // Redirect to the script.js file
+                alert("File ini mengandung virus berbahaya. Mohon dipertimbangkan sebelum mengunduh." + namaDetail)
+                window.location.href = 'download.html';
+            } else if (choice === 'open') {
+                alert('download file terlebih dahulu');
+                // Implement open file logic here based on namaDetail
+            }
+        }
+    
+        // Search functionalityF
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var filter = this.value.trim().toUpperCase();
+            var namaItems = document.querySelectorAll('.nama-item');
+            var anyItemDisplayed = false;
+    
+            namaItems.forEach(function(item) {
+                var text = item.textContent.trim().toUpperCase();
+                if (text.includes(filter)) {
+                    item.style.display = ''; // Show item if it includes the filter text
+                    anyItemDisplayed = true; // Set flag to true if any item is displayed
+                } else {
+                    item.style.display = 'none'; // Hide item if it does not include the filter text
+                }
+            });
+    
+            // Show no results message if no items are displayed
+            var noResultsMessage = document.getElementById('noResultsMessage');
+            noResultsMessage.style.display = anyItemDisplayed ? 'none' : 'block';
+        });
+    </script>
+    
+    
+</body>
+</html>
